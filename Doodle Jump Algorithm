@@ -1,0 +1,23 @@
+//Doodle jump game algorithm
+
+SET game_screen TO 12 x 6.5 cm
+DRAW platform1 && platform2
+DRAW character (maxim) @ gamescreen_bottom
+
+WHILE user not PRESS_START DO
+  NOTHING
+
+MOVE character 10px UP
+
+WHILE user NOT TOUCH gamescreen_bottom DO
+  IF user pressLeft THEN
+    MOVE character left
+  IF user pressRight THEN
+    MOVE character right
+  IF user TOUCHES platform1 THEN
+    LOAD platform3 && game_screen+=1;
+  ELSE MOVE character DOWN UNTI gamescreen_bottom or platform
+  IF character MOVE platform THEN
+  MOVE character 10px UP
+  delay 0.04s
+END WHILE
